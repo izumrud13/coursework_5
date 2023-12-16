@@ -4,9 +4,9 @@ import requests
 
 def get_data(data: list) -> list:
     """
-    Take a list of companies ID from hh.ru and return a list of dicts
-    :param data: list of companies ID
-    :return: list of dicts
+    Возьмите список ID компаний из hh.ru и верните список dicts
+    :param data: список ID компаний
+    :return: список диктов
     """
     result = []
     for item in data:
@@ -21,9 +21,9 @@ def get_data(data: list) -> list:
 
 def create_db(name: str, params: dict) -> None:
     """
-    Create database in postgres
-    :param name: name of the future database
-    :param params: params to connection
+    Создание базы данных в postgres
+    :param name: имя будущей базы данных
+    :param params: параметры для подключения
     """
     conn = psycopg2.connect(dbname='postgres', **params)
     conn.autocommit = True
@@ -42,7 +42,6 @@ def create_tables(name: str, params: dict) -> None:
     :param params: параметры для подключения
     """
     conn = psycopg2.connect(database=name, **params)
-
     try:
         with conn:
             with conn.cursor() as curs:
